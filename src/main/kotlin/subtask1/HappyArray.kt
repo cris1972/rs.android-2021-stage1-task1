@@ -9,29 +9,36 @@ class HappyArray {
 
     var index = 0
     lateinit var myArray: IntArray
-
+    private lateinit var happi:IntArray
     fun convertToHappy(sadArray: IntArray): IntArray {
         var happi:IntArray
         var badArray1 = intArrayOf()
+        val sadArrayTest = intArrayOf()
+        if (sadArray.isEmpty())
+        {return sadArray}
+
+        return iffNotEmpte(sadArray)
 
 
 
-            happi1 = myHappy(sadArray)
-            index = 0
+    }
 
-            happi = myHappy(happi1)
-            while (index != 0) {
-                happi = myHappy(happi)
-                happi = myHappy(happi)
-            }
+    private fun iffNotEmpte(sadArray: IntArray): IntArray {
+        happi1 = myHappy(sadArray)
+        index = 0
+
+        happi = myHappy(happi1)
+        while (index != 0) {
+            happi = myHappy(happi)
+
+        }
 
 
-            print("index     =  $index")
+        print("index     =  $index")
 
 
 
-            return happi
-
+        return happi
 
     }
 
@@ -39,8 +46,9 @@ class HappyArray {
 
 
         myArray = intArrayOf(sadArray[0])
+        index=0
         for (i in 1..sadArray.size - 2) {
-            index=0
+
             if (sadArray[i] < (sadArray[i - 1] + sadArray[i + 1])) {
                myArray += sadArray[i]
 
